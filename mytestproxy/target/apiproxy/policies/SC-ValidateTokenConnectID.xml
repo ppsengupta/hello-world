@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ServiceCallout async="false" continueOnError="false" enabled="false" name="SC-ValidateTokenConnectID">
+    <DisplayName>SC-ValidateTokenConnectID</DisplayName>
+    <Properties/>
+    <Request>
+        <IgnoreUnresolvedVariables>false</IgnoreUnresolvedVariables>
+        <Copy>
+            <Headers>
+                <Header name="Authorization"/>
+            </Headers>
+        </Copy>
+    </Request>
+    <Response>response</Response>
+    <LocalTargetConnection>
+        <APIProxy>validate-token-v1</APIProxy>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </LocalTargetConnection>
+</ServiceCallout>

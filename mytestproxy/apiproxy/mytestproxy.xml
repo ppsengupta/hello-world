@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<APIProxy revision="1" name="mytestproxy">
+    <Basepaths>/mytest</Basepaths>
+    <ConfigurationVersion majorVersion="4" minorVersion="0"/>
+    <CreatedAt>1500651325127</CreatedAt>
+    <CreatedBy>parthapratim.sengupta@wipro.com</CreatedBy>
+    <Description>API Proxy generated with Common API Proxy as Template with default policies</Description>
+    <DisplayName>mytestproxy</DisplayName>
+    <LastModifiedAt>1500655932622</LastModifiedAt>
+    <LastModifiedBy>parthapratim.sengupta@wipro.com</LastModifiedBy>
+    <Policies>
+        <Policy>AM-AddCORSHeader</Policy>
+        <Policy>AM-CopyBackendResponse</Policy>
+        <Policy>EV-UnknownResourceGET</Policy>
+        <Policy>EV-UnknownResourcePOST</Policy>
+        <Policy>JS-FixRequestVerb</Policy>
+        <Policy>JS-SetApigeeError</Policy>
+        <Policy>JS-SetTransactionId</Policy>
+        <Policy>ML-ErrorMessageLogging</Policy>
+        <Policy>OA-ValidateAccessToken</Policy>
+        <Policy>Q-TransactionSeq</Policy>
+        <Policy>RF-ErrorResponse</Policy>
+        <Policy>RF-UnknownResource</Policy>
+        <Policy>SA-SpikeArrestLimit</Policy>
+        <Policy>SC-ValidateTokenConnectID</Policy>
+    </Policies>
+    <ProxyEndpoints>
+        <ProxyEndpoint>default</ProxyEndpoint>
+    </ProxyEndpoints>
+    <Resources>
+        <Resource>node://appMock.js</Resource>
+        <Resource>jsc://JS-FixRequestVerb.js</Resource>
+        <Resource>jsc://JS-SetApigeeError.js</Resource>
+        <Resource>jsc://JS-SetTransactionId.js</Resource>
+    </Resources>
+    <Spec></Spec>
+    <TargetServers/>
+    <TargetEndpoints>
+        <TargetEndpoint>sandbox</TargetEndpoint>
+    </TargetEndpoints>
+    <validate>false</validate>
+</APIProxy>

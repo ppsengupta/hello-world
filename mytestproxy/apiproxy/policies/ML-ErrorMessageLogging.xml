@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<MessageLogging async="false" continueOnError="false" enabled="true" name="ML-ErrorMessageLogging">
+    <DisplayName>ML-ErrorMessageLogging</DisplayName>
+    <File>
+        <Message>"
+"{client.received.start.time}|{client.sent.end.time}|{apiproxy.name}|{apiproxy.revision}|{developer.app.name}|{req.idValue}|{proxy.url}|{message.status.code}|{errorMessage}|{error.message}</Message>
+        <FileName>mytestproxy.log</FileName>
+        <FileRotationOptions rotateFileOnStartup="false">
+            <FileRotationType>TIME</FileRotationType>
+            <RotationFrequency unit="minute">60</RotationFrequency>
+            <MaxFilesToRetain>24</MaxFilesToRetain>
+        </FileRotationOptions>
+    </File>
+    <BufferMessage>true</BufferMessage>
+</MessageLogging>

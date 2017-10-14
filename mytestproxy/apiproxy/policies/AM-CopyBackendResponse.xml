@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<AssignMessage async="false" continueOnError="false" enabled="true" name="AM-CopyBackendResponse">
+    <DisplayName>AM-CopyBackendResponse</DisplayName>
+    <Properties/>
+    <AssignVariable>
+        <Name>backendRequestContent</Name>
+        <Ref>request.content</Ref>
+    </AssignVariable>
+    <AssignVariable>
+        <Name>backendResponseContent</Name>
+        <Ref>response.content</Ref>
+    </AssignVariable>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <!-- <AssignTo createNew="false" transport="http" type="request"/> -->
+</AssignMessage>

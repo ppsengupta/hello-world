@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-UnknownResource">
+    <DisplayName>RF-UnknownResource</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
+            {
+                "transactionId": "@transactionId#",
+                "timeStamp": "@isoTimestamp#",
+                "id":
+                {
+                    "type": "MSISDN",
+                    "value": "@req.idValue#"
+                },
+                "code": "404.xxx.101",
+                "error": "Resource not found",
+                "message": "Resource not found/Invalid resource"
+            }
+            </Payload>
+            <StatusCode>404</StatusCode>
+            <ReasonPhrase>Not found</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>
