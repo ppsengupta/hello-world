@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<RaiseFault async="false" continueOnError="false" enabled="true" name="RF-ErrorResponse">
+    <DisplayName>RF-ErrorResponse</DisplayName>
+    <Properties/>
+    <FaultResponse>
+        <Set>
+            <Headers/>
+            <Payload contentType="application/json" variablePrefix="@" variableSuffix="#">
+            {
+                "transactionId": "@transactionId#",
+                "timeStamp": "@isoTimestamp#",
+                "id":
+                {
+                    "type": "MSISDN",
+                    "value": "@req.idValue#"
+                },
+                "code": "@errorCode#",
+                "error": "@errorDesc#",
+                "message": "@errorMessage#"
+            }
+            </Payload>
+            <StatusCode>{httpError}</StatusCode>
+            <ReasonPhrase>{errorDesc}</ReasonPhrase>
+        </Set>
+    </FaultResponse>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+</RaiseFault>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-UnknownResourcePOST">
+    <DisplayName>EV-UnknownResourcePOST</DisplayName>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Variable name="message.path">
+        <Pattern>//mytest/{idValue}/*</Pattern>
+    </Variable>
+    <JSONPayload>
+        <Variable name="idType">
+            <JSONPath>$.id.type</JSONPath>
+        </Variable>
+        <Variable name="idValue">
+            <JSONPath>$.id.value</JSONPath>
+        </Variable>
+    </JSONPayload>
+    <Source clearPayload="false">request.content</Source>
+    <VariablePrefix>req</VariablePrefix>
+</ExtractVariables>

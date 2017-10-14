@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<SpikeArrest async="false" continueOnError="false" enabled="true" name="SA-SpikeArrestLimit">
+    <DisplayName>SA-ProxyLimit</DisplayName>
+    <Properties/>
+    <!--Identifier ref="request.header.some-header-name"/>
+    <MessageWeight ref="request.header.weight"/-->
+    <Rate ref="kvm.spikeArrest">10ps</Rate>
+</SpikeArrest>

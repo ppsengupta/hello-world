@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtractVariables async="false" continueOnError="false" enabled="true" name="EV-UnknownResourceGET">
+    <DisplayName>EV-UnknownResourceGET</DisplayName>
+    <IgnoreUnresolvedVariables>true</IgnoreUnresolvedVariables>
+    <Variable name="message.path">
+        <Pattern>//mytest/{idValue}/*</Pattern>
+    </Variable>
+    <QueryParam name="idType">
+        <Pattern ignoreCase="true">{idType}</Pattern>
+    </QueryParam>
+    <QueryParam name="idValue">
+        <Pattern ignoreCase="true">{idValue}</Pattern>
+    </QueryParam>
+    <Source clearPayload="false">request</Source>
+    <VariablePrefix>req</VariablePrefix>
+</ExtractVariables>

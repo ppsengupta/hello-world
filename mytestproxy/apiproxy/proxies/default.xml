@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ProxyEndpoint name="default">
+    <Description/>
+    <FaultRules>
+        <FaultRule name="GenericFaultHandling">
+            <Step>
+                <Name>JS-SetApigeeError</Name>
+                <Condition>(exceptionName == null)</Condition>
+            </Step>
+            <Step>
+                <Name>RF-ErrorResponse</Name>
+                <Condition>exceptionName != null</Condition>
+            </Step>
+            <Condition>(message.status.code != 404)</Condition>
+        </FaultRule>
+    </FaultRules>
+    <PreFlow name="PreFlow">
+        <Request>
+            <Step>
+                <Name>SA-SpikeArrestLimit</Name>
+            </Step>
+            <Step>
+                <Name>OA-ValidateAccessToken</Name>
+            </Step>
+            <Step>
+                <Name>SC-ValidateTokenConnectID</Name>
+            </Step>
+            <Step>
+                <Name>Q-TransactionSeq</Name>
+            </Step>
+            <Step>
+                <Name>JS-SetTransactionId</Name>
+            </Step>
+        </Request>
+        <Response>
+            <Step>
+                <Name>RF-ErrorResponse</Name>
+                <Condition>(message.status.code =| 20)</Condition>
+            </Step>
+        </Response>
+    </PreFlow>
+    <PostFlow name="PostFlow">
+        <Request/>
+        <Response/>
+    </PostFlow>
+    <Flows>
+        <Flow name="UnknownResource">
+            <Description>To handle all unknown resource path</Description>
+            <Request>
+                <Step>
+                    <Name>EV-UnknownResourcePOST</Name>
+                    <Condition>(request.verb = "POST")</Condition>
+                </Step>
+                <Step>
+                    <Name>EV-UnknownResourceGET</Name>
+                    <Condition>(request.verb = "GET")</Condition>
+                </Step>
+                <Step>
+                    <Name>RF-UnknownResource</Name>
+                </Step>
+            </Request>
+            <Response/>
+        </Flow>
+    </Flows>
+    <PostClientFlow>
+        <Response>
+            <Step>
+                <Name>ML-ErrorMessageLogging</Name>
+            </Step>
+        </Response>
+    </PostClientFlow>
+    <HTTPProxyConnection>
+        <BasePath>/mytest</BasePath>
+        <Properties/>
+        <VirtualHost>default</VirtualHost>
+        <!--VirtualHost>domain</VirtualHost-->
+    </HTTPProxyConnection>
+    <RouteRule name="sandbox">
+        <TargetEndpoint>sandbox</TargetEndpoint>
+    </RouteRule>
+</ProxyEndpoint>
